@@ -31,3 +31,10 @@ dialog{width:min(430px,calc(100% - 28px));max-height:calc(100dvh - 28px - env(sa
 [data-theme=neon] .key[data-note="60"] .note-label{color:#69f4e1}[data-theme=neon] .key[data-note="60"] .note-label::before{background:#69f4e1}
 [data-theme=neon] dialog{background:#121a2b;border-color:#69f4e133;color:#deefff}[data-theme=neon] select{background:#0a1120;color:#c6e4ff;border-color:#69f4e126}[data-theme=neon] .toast{background:#121a2b;border-color:#69f4e144;color:#b6fff4}
 .offline-retry{border:0;background:transparent;color:var(--accent);font-size:inherit;text-decoration:underline;padding:0;cursor:pointer}
+/* The keyboard owns the full screen; the only floating control is settings. */
+#instrument-screen{padding-top:env(safe-area-inset-top)}
+.brand{display:none}
+.settings-button{background:#24282ef2;box-shadow:0 2px 10px #0003}
+.keyboard-hint{top:18px;z-index:3;background:#24282ee8;padding:8px 12px;border-radius:9px;color:#b4b7bd}
+[data-theme=sepia] .settings-button{background:#382d24f2}
+[data-theme=neon] .settings-button{background:#121a2bf2}

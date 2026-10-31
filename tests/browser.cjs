@@ -89,6 +89,7 @@ const server = http.createServer((req,res)=>{
    assert.equal(await page.locator('#scale').inputValue(),'14');
    await page.locator('#slide').uncheck();
    await page.locator('#reset').click();
+   await page.waitForFunction(()=>document.body.dataset.ready==='true');
    await page.locator('#close-settings').click();
    const start=await page.locator('#keyboard').evaluate(el=>el.scrollLeft);
    const box=await page.locator('.key[data-note="60"]').boundingBox();

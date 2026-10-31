@@ -1,5 +1,5 @@
 // Bump this version whenever any bundled application asset changes.
-const CACHE = 'piano-pwa-v1';
+const CACHE = 'piano-pwa-v2';
 const ROOTS = [21, ...Array.from({ length: 15 }, (_, i) => 24 + i * 6)];
 const ASSETS = [
   './', './index.html', './style.css', './app.js', './model.js', './audio.js',

@@ -1,0 +1,9 @@
+# Offline piano for iPad
+
+Approved in conversation: monophonic PWA with piano, marimba, trumpet; concert C or B-flat transposition (written C sounds B-flat, -2 semitones). Default visible range F2–F5 inclusive, 22 white / 15 black keys. Full instrument A0–C8. Keyboard fills available screen. Small settings button in top right opens a modal with scale, register overview, gesture slide toggle, instrument and transposition. Default gesture slide off. Preferences persist locally. In locked mode dragging across keys plays successive notes; in slide mode crossing a movement threshold stops sound and pans. Ignore extra touches. Resize preserves selected register and white-key count.
+
+Approach chosen by implementation: static HTML/CSS/ES modules, direct Web Audio playback with locally bundled FluidR3 samples (CC BY 3.0 attribution), no production dependencies. Sample playback was preferred to synthetic approximations for identifiable instruments. A heavier UI framework offers no benefit for this single-screen interaction. Initial decoding happens before keys are enabled; AudioContext resumes on a user gesture, latencyHint interactive. Entire app and all sounds precached atomically by a versioned service worker. Show offline readiness only once caching succeeds. On iPad, Safari Add to Home Screen installs it; first online opening is required.
+
+Hosting: user's public cnstntn-kndrtv/piano-pwa repository, GitHub Pages over HTTPS, relative asset URLs valid under /piano-pwa/. Tests cover note range, transposition, zoom bounds, corrupt preferences, touch gestures, audio release and offline reload. Real iPad latency requires hardware confirmation; do not promise an absolute latency value.
+
+Additional user request: three visual themes, classic (default), sepia and futuristic neon; selected in settings, persisted and usable offline.

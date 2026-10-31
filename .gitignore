@@ -147,3 +147,8 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Local verification artifacts
+.superpowers/
+test-results/
+playwright-report/

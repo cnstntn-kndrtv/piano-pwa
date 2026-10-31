@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#181b20">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Пианино, маримба и труба. Играйте на iPad даже без интернета.">
+  <title>Piano · ваша клавиатура</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="instrument-screen" aria-label="Музыкальная клавиатура">
+    <div class="brand" aria-hidden="true">piano<span>·</span></div>
+    <button id="settings-button" class="settings-button" aria-label="Настройки" aria-haspopup="dialog" title="Настройки">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9.5 3-.7 2.3-2 .9-2.2-.5-2.5 4.2 1.6 1.8v2.4L2.1 16l2.5 4.2 2.2-.5 2 .9.7 2.3h5l.7-2.3 2-.9 2.2.5 2.5-4.2-1.6-1.8v-2.4l1.6-1.8-2.5-4.2-2.2.5-2-.9L14.5 3Z" transform="translate(0 -1) scale(1 .95)"/><circle cx="12" cy="11.5" r="3.4"/></svg>
+    </button>
+    <div id="keyboard" role="group" aria-label="Клавиатура пианино"><div id="keys"></div></div>
+    <div id="loading" class="toast" role="status">Подготовка инструментов…</div>
+    <div id="hint" class="keyboard-hint" aria-hidden="true">КОСНИТЕСЬ КЛАВИШИ</div>
+  </main>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <div class="dialog-header"><div><p class="eyebrow">ВАША КЛАВИАТУРА</p><h1 id="settings-title">Настройки</h1></div><button id="close-settings" class="close-button" aria-label="Закрыть настройки">×</button></div>
+    <div class="setting"><label for="instrument">Инструмент</label><select id="instrument"><option value="piano">Пианино</option><option value="marimba">Маримба</option><option value="trumpet">Труба</option></select></div>
+    <div class="setting"><label for="theme">Визуальная тема</label><select id="theme"><option value="classic">Классика</option><option value="sepia">Сепия</option><option value="neon">Неон · футуристическая</option></select></div>
+    <div class="setting"><label for="transpose">Строй</label><select id="transpose"><option value="c">C · обычный</option><option value="bb">B♭ · на тон ниже</option></select><p class="help">В строе B♭ нажатая До звучит как Си♭.</p></div>
+    <div class="setting"><div class="label-row"><label for="scale">Масштаб</label><output id="scale-label" for="scale">22 белые клавиши</output></div><input id="scale" type="range" min="7" max="52" step="1" value="22"><div class="range-captions"><span>Крупнее</span><span>Больше клавиш</span></div></div>
+    <div class="setting"><div class="label-row"><label for="position">Участок клавиатуры</label><output id="range-label" for="position"></output></div><div id="overview" aria-hidden="true"><div id="overview-window"></div></div><input id="position" type="range" min="0" max="30" step="0.01" value="12" aria-label="Положение видимого участка"><div class="range-captions"><span>A0</span><span>C8</span></div></div>
+    <div class="setting switch-row"><div><label for="slide">Сдвиг жестом</label><p class="help">Перетаскивайте клавиатуру одним пальцем.<br>Выключено — движение играет ноты.</p></div><input id="slide" type="checkbox" role="switch"></div>
+    <button id="reset" class="reset-button">Вернуть F2–F5 и исходные настройки</button>
+    <div class="offline-info"><span id="offline-dot"></span><span id="offline-status" role="status">Сохраняем для работы без интернета…</span></div>
+    <p class="install-help">На iPad: Safari → «Поделиться» → «На экран Домой». Первый запуск — с интернетом.</p>
+    <details><summary>О приложении и звуках</summary><p>Piano · 1.0<br>Звуки FluidR3: Frank Wen и участники проекта. MP3: MIDI.js Soundfonts, Benjamin Gleitz. <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>. Использована выборка оригинальных записей с изменением высоты при воспроизведении.</p><p>Обозначения: Фа большой октавы — F2, Фа второй — F5. На устройстве включите громкость; при необходимости отключите беззвучный режим.</p></details>
+  </dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
